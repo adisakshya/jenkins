@@ -1,0 +1,19 @@
+sudo: required
+
+language: node_js
+node_js:
+    - "12"
+
+services:
+  - docker
+
+install:
+  - echo "install nothing!"
+
+script:
+  - echo "no tests!"
+
+after_success:
+  - docker info
+  - docker build -t jenkins-master .
+  - docker images
