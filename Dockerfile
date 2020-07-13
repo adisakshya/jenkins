@@ -4,6 +4,8 @@ FROM jenkins/jenkins:lts
 ENV JENKINS_USER adisakshya
 ENV JENKINS_PASS someSuperStrongPassword
 
+USER root
+
 # Install packages
 RUN apt-get update \
     && apt-get install -y \
@@ -19,7 +21,6 @@ COPY ./plugins/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
 # Install docker 
-USER root
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 RUN add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/debian \
