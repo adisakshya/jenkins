@@ -44,3 +44,6 @@ RUN mkdir -p /home/jenkins/.ansible && \
     chown -R 1000:1000 /home/jenkins/.ssh
 
 USER jenkins
+
+# Start jenkins
+CMD ["java", "-jar", "/opt/jenkins.war"]
