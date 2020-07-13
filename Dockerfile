@@ -36,13 +36,6 @@ RUN apt-get clean
 # Install docker-compose
 RUN curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 
-# Install ansible
-RUN pip install ansible 
-RUN mkdir -p /home/jenkins/.ansible && \
-    mkdir -p /home/jenkins/.ssh && \
-    chown -R 1000:1000 /home/jenkins/.ansible && \
-    chown -R 1000:1000 /home/jenkins/.ssh
-
 USER jenkins
 
 # Start jenkins
