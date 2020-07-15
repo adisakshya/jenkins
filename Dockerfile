@@ -4,6 +4,9 @@ FROM jenkins/jenkins:lts
 ENV JENKINS_USER adisakshya
 ENV JENKINS_PASS someSuperStrongPassword
 
+# Set version
+ENV JENKINS_MASTER_VERSION 1.0.0
+
 USER root
 
 # Install packages
