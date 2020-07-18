@@ -51,12 +51,14 @@ google-login
 gradle
 gravatar
 handlebars
+htmlpublisher
 icon-shim
 jackson2-api
 javadoc
 jquery-detached
 junit
 kerberos-sso
+kubernetes
 ldap
 maven-plugin
 mailer
@@ -88,6 +90,7 @@ pipeline-stage-view
 pipeline-utility-steps
 plain-credentials
 pubsub-light
+slack
 scm-api
 script-security
 sse-gateway
