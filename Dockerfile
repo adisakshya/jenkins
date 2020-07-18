@@ -4,6 +4,9 @@ FROM jenkins/jenkins:lts
 ENV JENKINS_USER adisakshya
 ENV JENKINS_PASS someSuperStrongPassword
 
+# Skip initial setup
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
 # Set version
 ENV JENKINS_MASTER_VERSION 1.0.0
 
