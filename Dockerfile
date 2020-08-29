@@ -42,8 +42,20 @@ RUN apt-get clean
 # Install docker-compose
 RUN curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 
+# Install node
+ENV NODE_VERSION=12
+RUN curl -sL -o- https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash && \
+    apt install nodejs -y && \
+    rm -rf /var/lib/apt/lists/*
+
 USER jenkins
 
 # Install plugins
 COPY ./plugins/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
+
+# docker run \
+# >     -p 8080:8080 \
+# >     -v $(which docker):/usr/bin/docker \
+# >     -v /var/run/docker.sock:/var/run/docker.sock:ro \
+# >     -u $(id -u):$(id -g) -d adisakshya/jenkins-master
